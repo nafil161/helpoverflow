@@ -12,6 +12,7 @@ class CovinLibrary
     const API_URL = 'https://cdn-api.co-vin.in/api/v2/';
 
 	public static function getState() {
+        return [];
         $client = new \GuzzleHttp\Client(
             [
                 'referer' => true,
