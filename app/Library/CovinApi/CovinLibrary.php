@@ -29,6 +29,7 @@ class CovinLibrary
         if(!$response){
             return [];
         }
+        return $response;
         $states = json_decode($response)->states;
         return $states;
         curl_close($crl);
