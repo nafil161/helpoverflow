@@ -16,7 +16,7 @@ class CovinLibrary
             [
                 'referer' => true,
                 'headers' => [
-                    'User-Agent' => '${YOUR TOOL NAME}/v1.0',
+                    'User-Agent' => "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36",
                     'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
                     'Accept-Encoding' => 'gzip, deflate, br',
                 ],
