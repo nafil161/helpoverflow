@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function home(){
-        return $states = CovinLibrary::getState();
+        $states = CovinLibrary::getState();
         return view('home', compact('states'));
     }
 
