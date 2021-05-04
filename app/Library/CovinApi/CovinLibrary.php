@@ -12,7 +12,13 @@ class CovinLibrary
     const API_URL = 'https://cdn-api.co-vin.in/api/v2/';
 
 	public static function getState() {
-        $client = new \GuzzleHttp\Client();
+        $client = new \GuzzleHttp\Client(
+            [
+                'headers' => [
+                    'User-Agent'   => 'curl/7.65.3',
+                ],
+            ]
+        );
         $request = $client->get(self::API_URL . 'admin/location/states');
         $response = $request->getBody();
         $states = json_decode($response)->states;
