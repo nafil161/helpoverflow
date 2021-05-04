@@ -14,8 +14,11 @@ class CovinLibrary
 	public static function getState() {
         $client = new \GuzzleHttp\Client(
             [
+                'referer' => true,
                 'headers' => [
-                    'User-Agent'   => 'curl/7.65.3',
+                    'User-Agent' => '${YOUR TOOL NAME}/v1.0',
+                    'Accept' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+                    'Accept-Encoding' => 'gzip, deflate, br',
                 ],
             ]
         );
