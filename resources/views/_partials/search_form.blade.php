@@ -113,15 +113,15 @@
                   <div class="row">
                     <div class="col-sm-4 border-right">
                       <div class="description-block">
-                        <h5 class="description-header">0</h5>
-                        <span class="description-text">TOTAL NO. OF CENTERS</span>
+                        <h5 class="description-header" id="total_center_count">0</h5>
+                        <span class="description-text" >TOTAL NO. OF CENTERS</span>
                       </div>
                       <!-- /.description-block -->
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-4 border-right">
                       <div class="description-block">
-                        <h5 class="description-header">0</h5>
+                        <h5 class="description-header" id="available_center_count">0</h5>
                         <span class="description-text">AVAILABLE</span>
                       </div>
                       <!-- /.description-block -->
@@ -129,7 +129,7 @@
                     <!-- /.col -->
                     <div class="col-sm-4">
                       <div class="description-block">
-                        <h5 class="description-header">0</h5>
+                        <h5 class="description-header" id="not_available_center_count">0</h5>
                         <span class="description-text">NOT AVAILABLE</span>
                       </div>
                       <!-- /.description-block -->

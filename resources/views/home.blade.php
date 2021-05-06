@@ -146,9 +146,29 @@
 
         function setCentreData(centresData) {
             $('#divShowCentres').empty();
+            let total_center_count = available_center_count = not_available_center_count=  0;
+
             $( centresData ).each(function( key,value ) {
+                let availableDoses = 0;
                 SetCentreDataCardDivData(value);
+
+                total_center_count++;
+                $( value.sessions ).each(function( key,value ) {
+                    availableDoses = parseInt(availableDoses) + parseInt(value.available_capacity);
+                });
+
+                if(availableDoses == 0) {
+                    not_available_center_count++;
+                }else {
+                    available_center_count++;
+                }
             });
+
+            // Set Summary Data
+            $('#total_center_count').html(total_center_count);
+            $('#available_center_count').html(available_center_count);
+            $('#not_available_center_count').html(not_available_center_count);
+
         }
 
         $('#selState').on('change', function(){
