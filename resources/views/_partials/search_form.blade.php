@@ -63,7 +63,7 @@
                                 <div class="form-group">
                                     <label>Date:</label>
                                     <div class="input-group date" id="txtdate" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" data-target="#txtdate"/>
+                                        <input type="text" class="form-control datetimepicker-input" id="txt_date_input" data-target="#txtdate"/>
                                         <div class="input-group-append" data-target="#txtdate" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
@@ -199,7 +199,8 @@
         <!--event features end-->
 
         <div class="row">
-            <div class="col-md-4">
+
+            {{-- <div class="col-md-4">
               <!-- Widget: user widget style 1 -->
               <div class="card card-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -241,8 +242,7 @@
                 </div>
               </div>
               <!-- /.widget-user -->
-            </div>
-            <!-- /.col -->
+            </div> --}}
             
         </div>
 

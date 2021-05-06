@@ -5,21 +5,23 @@ namespace App\Library\CovinAPi;
 // use Carbon\Carbon;
 // use DateTime;
 // use DateTimeZone;
-
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Http;
 
 class CovinLibrary 
 {
-    const API_URL = 'https://cdn-api.co-vin.in/api/v2/';
+    const API_URL = 'https://cdn-api.co-vin.in/api/v2';
 
 	public static function getState() {
-        return [];
+
+        $client = new Client();
         $client = new \GuzzleHttp\Client();
-        $request = $client->get(self::API_URL . 'https://cdn-api.co-vin.in/api/v2/admin/location/states');
+        $request = $client->get(self::API_URL . 'admin/location/states');
+        $request = $client->request('GET', $url);
         $response = $request->getBody();
         $states = json_decode($response)->states;
         return $states;
 
-        // $url = 'https://cdn-api.co-vin.in/api/v2/admin/location/states';
         // $crl = curl_init();
         
         // curl_setopt($crl, CURLOPT_URL, $url);
