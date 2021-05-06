@@ -29,7 +29,7 @@
 
   @yield('headcode')
 </head>
-<body class="sidebar-mini sidebar-collapse layout-fixed">
+<body class="layout-fixed sidebar-collapse layout-fixed">
 <div class="wrapper">
 
   @include('_partials.header')
