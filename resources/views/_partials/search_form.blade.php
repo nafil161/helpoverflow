@@ -31,7 +31,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form>
+                <form id="frm_search">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 col-sm-12">
@@ -136,6 +136,7 @@
                         <button class="btn btn-primary" type="button" id="btnCheck">Check</button>
                         {{-- <button class="btn btn-primary" type="button" id="btnGetByCentre">See Availability by Centres</button> --}}
                         <button class="btn btn-primary" style="display: none;" type="button" id="btnShowFilter">Show Filters</button>
+                        <button class="btn btn-primary" type="button" id="btnReset">Reset</button>
                         <button class="btn btn-primary" type="button" id="btnHideFilter">Hide Filters</button>
                     </div>
                 </form>

@@ -253,5 +253,8 @@
             $(this).hide();
             $('#btnHideFilter').show();
         })
+        $('#btnReset').click(function(){
+            $('#frm_search').trigger("reset");
+        })
     </script>
 @endsection
