@@ -18,6 +18,9 @@
 @section('scriptcode')
     <!-- Select2 -->
 <script src="{{asset('assets/plugins/select2/js/select2.full.min.js')}}"></script>
+<script src="{{asset('assets/plugins/jquery-validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('assets/plugins/jquery-validation/additional-methods.min.js')}}"></script>
+
     
     <script>
         $(document).ready(function() {
@@ -47,7 +50,7 @@
         }
 
         function setDistricts(districts) {
-            $('#selDistrict').empty();
+            resetSelDistrict();
             $( districts ).each(function( key,value ) {
                 $('#selDistrict').append('<option value="'+value.district_id+'">'+value.district_name+'</option>');
             });
@@ -219,6 +222,7 @@
 
         $('#selState').on('change', function(){
             if($(this).val() == '') {
+                resetSelDistrict();
                 return 0;
             }
             $.ajax({
@@ -227,20 +231,23 @@
                     let districts = data['districts'];
                     setDistricts(districts);
                     $("#msg").html(data.msg);
+                    $("#selDistrict").val('').trigger('change');
                 }
             });
 
         });
 
         $('#btnCheck').on('click', function(){
-            $.ajax({
-                url:'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id='+$('#selDistrict').val()+'&date='+$('#txt_date_input').val(),
-                success:function(data){
+            if ($("#frm_search").valid()) {
+                $.ajax({
+                    url:'https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id='+$('#selDistrict').val()+'&date='+$('#txt_date_input').val(),
+                    success:function(data){
 
-                    var centresData = data['centers'];
-                    setCentreData(centresData)
-                }
-            });
+                        var centresData = data['centers'];
+                        setCentreData(centresData)
+                    }
+                });
+            }
         });
 
         $('#btnHideFilter').click(function(){
@@ -254,8 +261,63 @@
             $('#btnHideFilter').show();
         })
         $('#btnReset').click(function(){
+            $("#selState").val('').trigger('change');
+            resetSelDistrict();
             $('#frm_search').trigger("reset");
-            // $("#selState").select2("val", "").select2('refresh');
         })
+
+        function isNumber(evt) {
+            evt = (evt) ? evt : window.event;
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                return false;
+            }
+            return true;
+        }
+
+        $(function () {
+            $.validator.setDefaults({
+                submitHandler: function (e) {
+                    e.preventDefault();
+                }
+            });
+            $('#frm_search').validate({
+                rules: {
+                    selState: {
+                        required: true,
+                    },
+                    selDistrict: {
+                        required: true,
+                    },  
+                    txt_date_input: {
+                        required: true,
+                    },  
+                },
+                messages: {
+                    selState: {
+                        required: "Please select state",
+                    },
+                    selDistrict: {
+                        required: "Please select District",
+                    },
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+                }
+            });
+        });
+
+        function resetSelDistrict(){
+            $("#selDistrict").val('').trigger('change');
+            $('#selDistrict').empty().append('<option value="">Select</option>');
+        }
     </script>
 @endsection

@@ -37,8 +37,8 @@
                             <div class="col-md-3 col-sm-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">State</label>
-                                    <select class="form-control select2" id="selState">
-                                        <option readonly>Select</option>
+                                    <select class="form-control select2" id="selState" name="selState">
+                                        <option value="">Select</option>
                                         @foreach($states as $state)
                                             <option value="{{$state->state_id}}">{{$state->state_name}}</option>
                                         @endforeach
@@ -48,8 +48,8 @@
                             <div class="col-md-3 col-sm-12">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">District</label>
-                                    <select class="form-control select2" style="min-width: 50px;" id="selDistrict">
-                                        <option readonly>Select</option>
+                                    <select class="form-control select2" style="min-width: 50px;" id="selDistrict" name="selDistrict">
+                                        <option value="">Select</option>
                                     </select>
                                 </div>
                             </div>
@@ -59,8 +59,8 @@
                                 <!-- Date -->
                                 <div class="form-group">
                                     <label>Date</label>
-                                    <div class="input-group date" id="txtdate" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" id="txt_date_input" data-target="#txtdate"/>
+                                    <div class="input-group date" id="txtdate" name="txtdate" data-target-input="nearest">
+                                        <input type="text" class="form-control datetimepicker-input" id="txt_date_input" name="txt_date_input" data-target="#txtdate" onkeypress="return isNumber(event)"/>
                                         <div class="input-group-append" data-target="#txtdate" data-toggle="datetimepicker">
                                             <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                         </div>
@@ -123,8 +123,8 @@
     
                     <div class="card-footer">
                         <button class="btn btn-primary" type="button" id="btnCheck">Check</button>
-                        <button class="btn btn-primary" style="display: none;" type="button" id="btnShowFilter">Show Filters</button>
                         <button class="btn btn-primary" type="button" id="btnReset">Reset</button>
+                        <button class="btn btn-primary" style="display: none;" type="button" id="btnShowFilter">Show Filters</button>
                         <button class="btn btn-primary" type="button" id="btnHideFilter">Hide Filters</button>
                     </div>
                 </form>
