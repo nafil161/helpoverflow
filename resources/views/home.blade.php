@@ -10,7 +10,7 @@
     @include('_partials.search_form')
     <div class="content-header">
         <div class="callout callout-info pt-2">
-            <small><span class="text-danger">Disclaimer :</span> This app is intended to serve only as a way to quickly find vaccine availability information. User will have to book their vaccination slots via the official channels like Aarogya Setu app, CoWin portal/app etc. Data is fetched in real time from CoWin Public APIs.</small>
+            <small><span class="text-danger">Disclaimer :</span> This app is intended to serve only as a way to quickly find vaccine availability information. User will have to book their vaccination slots via the official channels like Aarogya Setu app, CoWin portal/app etc. Data is fetched in real time from <a href="https://apisetu.gov.in/public/marketplace/api/cowin">CoWin Public APIs</a>.</small>
         </div>
     </div>
 @endsection
@@ -255,6 +255,7 @@
         })
         $('#btnReset').click(function(){
             $('#frm_search').trigger("reset");
+            // $("#selState").select2("val", "").select2('refresh');
         })
     </script>
 @endsection
