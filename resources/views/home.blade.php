@@ -62,9 +62,17 @@
             var availableAges = [];
             var availableAgedata = '';
             var availableDoses = 0;
-
             var vaccinefees = "";
-             
+
+            var showStatus = true;
+
+            var selfltr_fee = $('#selfltr_fee').val();
+            var selfltr_eligiblity = $('#selfltr_eligiblity').val();
+            var selfltr_vaccinetype = $('#selfltr_vaccinetype').val();
+            var selfltr_availability = $('#selfltr_availability').val();
+            var txt_search_code = $('#txt_search_code').val();
+
+
             /* Start :  Age Limits */ 
             $( data.sessions ).each(function( key,value ) {
                 if(jQuery.inArray(value.min_age_limit, availableAges) == '-1'){
@@ -99,57 +107,90 @@
 
             var icon_box_class = parseInt(availableDoses) > 0 ? ' bg-success' : 'bg-danger';
 
-            // var div='<div class="col-12 col-md-6 col-lg-4">\
-            //     <div class="m-1 p-2 '+ icon_box_class +'">\
-            //         <div class="content">\
-            //             <h4 data-center-id="'+data.center_id+'">'+data.name+'</h4>\
-            //             <p>'+availableAgedata+'</p>\
-            //             <p>'+data.fee_type+'</p>\
-            //             <p>Pincode : '+data.pincode+'</p>\
-            //             <p>Available Doses : '+availableDoses+'</p>\
-            //             '+ vaccinefees +bookingBtn +'\
-            //         </div>\
-            //     </div>\
-            // </div>';
+            /* Start : Check Filters */
+            if(selfltr_fee != 'all' && selfltr_fee != data.fee_type) {
+                showStatus = false;
+            }
+            
+            if(selfltr_eligiblity != 'all') {
+                var find_age = false;
+                $( availableAges ).each(function( key,value ) {
+                    if( selfltr_eligiblity == value) { find_age = true; }
+                });
+                showStatus = showStatus && find_age ? showStatus : false;
+            }
 
-            var div ='<div class="col-md-3"  data-center-id="'+data.center_id+'">\
-                        <div class="card card-widget widget-user">\
-                            <div class="widget-user-header '+icon_box_class+'">\
-                                <h3 class="widget-user-username">'+data.name+'</h3>\
-                                <h5 class="widget-user-desc">'+availableAgedata+'</h5>\
-                            </div>\
-                            <div class="widget-user-image">\
-                                <img class="img-circle elevation-2" style="background-color: black;" src="{{asset('assets/dist/img/hospital.ico')}}" alt="User Avatar">\
-                            </div>\
-                            <div class="card-footer">\
-                            <div class="row">\
-                                <div class="col-sm-4 border-right">\
-                                <div class="description-block">\
-                                    <h5 class="description-header">'+data.fee_type+'</h5>\
-                                    <span class="description-text">Fee Type</span>\
-                                </div>\
-                                </div>\
-                                <div class="col-sm-4 border-right">\
-                                <div class="description-block">\
-                                    <h5 class="description-header">'+data.pincode+'</h5>\
-                                    <span class="description-text">Pincode</span>\
-                                </div>\
-                                </div>\
-                                <div class="col-sm-4">\
-                                <div class="description-block">\
-                                    <h5 class="description-header">'+availableDoses+'</h5>\
-                                    <span class="description-text">Available Doses</span>\
-                                </div>\
-                                </div>\
-                            </div>\
-                            <div class="text-center pt-1" style="min-height: 78px;">\
-                                '+ vaccinefees +bookingBtn +'\
-                            </div>\
-                            </div>\
-                        </div>\
-                    </div>';
+            if(selfltr_vaccinetype != 'any') {
+                var find_vaccine = false;
 
-            $('#divShowCentres').append(div);
+                $( data.vaccine_fees ).each(function( key,value ) {
+                    if(value.vaccine == selfltr_vaccinetype) {
+                        find_vaccine = true;
+                    }
+                });
+                showStatus = showStatus && find_vaccine ? showStatus : false;
+            }
+
+            if(selfltr_availability != 'all') {
+                if(showStatus && selfltr_availability == 'available' && parseInt(availableDoses) == 0) {
+                    showStatus = false;
+                }else if(showStatus && selfltr_availability == 'unavailable' && parseInt(availableDoses) > 0) {
+                    showStatus = false;
+                }
+            }
+
+            if(txt_search_code != '') {
+
+                centreNameUpper = data.name.toUpperCase();
+                searchTextToUpper = txt_search_code.toUpperCase();
+
+                if(txt_search_code != data.pincode  && centreNameUpper.indexOf(searchTextToUpper) == -1)
+                {showStatus = false;}
+                // && (txt_search_code != data.pincode || !data.name.includes(txt_search_code))
+            }
+
+            /* End : Check Filters */
+            if(showStatus) {
+                var div ='<div class="col-md-3"  data-center-id="'+data.center_id+'">\
+                            <div class="card card-widget widget-user">\
+                                <div class="widget-user-header '+icon_box_class+'">\
+                                    <h3 class="widget-user-username">'+data.name+'</h3>\
+                                    <h5 class="widget-user-desc">'+availableAgedata+'</h5>\
+                                </div>\
+                                <div class="widget-user-image">\
+                                    <img class="img-circle elevation-2" style="background-color: black;" src="{{asset('assets/dist/img/hospital.ico')}}" alt="User Avatar">\
+                                </div>\
+                                <div class="card-footer">\
+                                <div class="row">\
+                                    <div class="col-sm-4 border-right">\
+                                    <div class="description-block">\
+                                        <h5 class="description-header">'+data.fee_type+'</h5>\
+                                        <span class="description-text">Fee Type</span>\
+                                    </div>\
+                                    </div>\
+                                    <div class="col-sm-4 border-right">\
+                                    <div class="description-block">\
+                                        <h5 class="description-header">'+data.pincode+'</h5>\
+                                        <span class="description-text">Pincode</span>\
+                                    </div>\
+                                    </div>\
+                                    <div class="col-sm-4">\
+                                    <div class="description-block">\
+                                        <h5 class="description-header">'+availableDoses+'</h5>\
+                                        <span class="description-text">Available Doses</span>\
+                                    </div>\
+                                    </div>\
+                                </div>\
+                                <div class="text-center pt-1" style="min-height: 78px;">\
+                                    '+ vaccinefees +bookingBtn +'\
+                                </div>\
+                                </div>\
+                            </div>\
+                        </div>';
+
+                $('#divShowCentres').append(div);
+            }
+            
         }
 
         function setCentreData(centresData) {

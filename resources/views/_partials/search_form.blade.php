@@ -82,9 +82,51 @@
                             </div>
                             
                             <div class="col-md-3 col-sm-12">
-                                <div class="form-group align-bottom">
-                                    
-                                </div>
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Filter by fee type</label>
+                                  <select class="form-control" style="min-width: 50px;" id="selfltr_fee">
+                                      <option value="all">Free and Paid</option>
+                                      <option value="Free">Only Free</option>
+                                      <option value="Paid">Only Paid</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Filter by eligiblity</label>
+                                  <select class="form-control" style="min-width: 50px;" id="selfltr_eligiblity">
+                                      <option value="all">All</option>
+                                      <option value="45">45+</option>
+                                      <option value="18">18+</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Filter by Vaccine type</label>
+                                  <select class="form-control" style="min-width: 50px;" id="selfltr_vaccinetype">
+                                      <option value="any">Any</option>
+                                      <option value="COVISHIELD">COVISHIELD</option>
+                                      <option value="COVAXIN">COVAXIN</option>
+                                  </select>
+                              </div>
+                            </div>
+                           
+                            <div class="col-md-3 col-sm-12">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Availability</label>
+                                  <select class="form-control" style="min-width: 50px;" id="selfltr_availability">
+                                      <option value="all">All</option>
+                                      <option selected value="available">Available Only</option>
+                                      <option value="unavailable">Unavailable</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="col-md-3 col-sm-12">
+                              <div class="form-group">
+                                  <label for="exampleInputEmail1">Search by center name or pincode</label>
+                                  <input type="text" class="form-control" id="txt_search_code"/>
+                              </div>
                             </div>
                         </div>
                     </div>
@@ -92,7 +134,7 @@
     
                     <div class="card-footer">
                         <button class="btn btn-primary" type="button" id="btnCheck">Check</button>
-                        <button class="btn btn-primary" type="button" id="btnGetByCentre">See Availability by Centres</button>
+                        {{-- <button class="btn btn-primary" type="button" id="btnGetByCentre">See Availability by Centres</button> --}}
                     </div>
                 </form>
                 </div>
