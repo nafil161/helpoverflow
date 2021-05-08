@@ -54,14 +54,11 @@
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-12">
-                                {{-- <div class="form-group">
-                                    <label for="exampleInputEmail1">Date</label>
-                                    <input type="text" class="form-control datetimepicker-input" format="dd-mm-yyyy" id="txtdate">
-                                </div> --}}
+                                
 
                                 <!-- Date -->
                                 <div class="form-group">
-                                    <label>Date:</label>
+                                    <label>Date</label>
                                     <div class="input-group date" id="txtdate" data-target-input="nearest">
                                         <input type="text" class="form-control datetimepicker-input" id="txt_date_input" data-target="#txtdate"/>
                                         <div class="input-group-append" data-target="#txtdate" data-toggle="datetimepicker">
@@ -70,15 +67,7 @@
                                     </div>
                                 </div>
 
-                                {{-- <div class="form-group">
-                                    <label>Date</label>
-                                      <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                                          <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
-                                          <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                                              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                          </div>
-                                      </div>
-                                  </div> --}}
+                                
                             </div>
                             
                             <div class="col-md-3 col-sm-12 div-filter">
@@ -134,7 +123,6 @@
     
                     <div class="card-footer">
                         <button class="btn btn-primary" type="button" id="btnCheck">Check</button>
-                        {{-- <button class="btn btn-primary" type="button" id="btnGetByCentre">See Availability by Centres</button> --}}
                         <button class="btn btn-primary" style="display: none;" type="button" id="btnShowFilter">Show Filters</button>
                         <button class="btn btn-primary" type="button" id="btnReset">Reset</button>
                         <button class="btn btn-primary" type="button" id="btnHideFilter">Hide Filters</button>
@@ -191,106 +179,9 @@
         </div>
         <!--event features-->
         <div class="row justify-content-center mt30" id="divShowCentres">
-            {{-- <div class="col-12 col-md-6 col-lg-3">
-                <div class="icon_box_one">
-                    <div class="content">
-                        <h4>9 Speakers</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
-                        </p>
-                    </div>
-                </div>
-            </div> --}}
-
-            {{-- <div class="col-12 col-md-6 col-lg-3">
-                <div class="icon_box_one">
-                    <i class="lnr lnr-rocket"></i>
-                    <div class="content">
-                        <h4>8 hrs Marathon</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
-                        </p>
-                        <a href="#">read more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="icon_box_one">
-                    <i class="lnr lnr-bullhorn"></i>
-                    <div class="content">
-                        <h4>Live Broadcast</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
-                        </p>
-                        <a href="#">read more</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6 col-lg-3">
-                <div class="icon_box_one">
-                    <i class="lnr lnr-clock"></i>
-                    <div class="content">
-                        <h4>Early Bird</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In rhoncus massa nec graviante.
-                        </p>
-                        <a href="#">read more</a>
-                    </div>
-                </div>
-            </div> --}}
-        </div>
-        <!--event features end-->
-
-        <div class="row">
-
-            {{-- <div class="col-md-4">
-              <!-- Widget: user widget style 1 -->
-              <div class="card card-widget widget-user">
-                <!-- Add the bg color to the header using any of the bg-* classes -->
-                <div class="widget-user-header bg-info">
-                  <h3 class="widget-user-username">Alexander Pierce</h3>
-                  <h5 class="widget-user-desc">Founder &amp; CEO</h5>
-                </div>
-                <div class="widget-user-image">
-                  <img class="img-circle elevation-2" src="{{asset('assets/dist/img/user1-128x128.jpg')}}" alt="User Avatar">
-                </div>
-                <div class="card-footer">
-                  <div class="row">
-                    <div class="col-sm-4 border-right">
-                      <div class="description-block">
-                        <h5 class="description-header">3,200</h5>
-                        <span class="description-text">SALES</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-4 border-right">
-                      <div class="description-block">
-                        <h5 class="description-header">13,000</h5>
-                        <span class="description-text">FOLLOWERS</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                    <div class="col-sm-4">
-                      <div class="description-block">
-                        <h5 class="description-header">35</h5>
-                        <span class="description-text">PRODUCTS</span>
-                      </div>
-                      <!-- /.description-block -->
-                    </div>
-                    <!-- /.col -->
-                  </div>
-                  <!-- /.row -->
-                </div>
-              </div>
-              <!-- /.widget-user -->
-            </div> --}}
             
         </div>
-
+        <!--event features end-->
     </div>
 </section>
 
