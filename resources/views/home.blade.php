@@ -7,12 +7,12 @@
 @endsection
 
 @section('content')
-<div class="content-header">
-    <div class="callout callout-info pt-2">
-        <small><span class="text-danger">Disclaimer :</span> This app is intended to serve only as a way to quickly find vaccine availability information. User will have to book their vaccination slots via the official channels like Aarogya Setu app, CoWin portal/app etc. Data is fetched in real time from CoWin Public APIs.</small>
-    </div>
-</div>
     @include('_partials.search_form')
+    <div class="content-header">
+        <div class="callout callout-info pt-2">
+            <small><span class="text-danger">Disclaimer :</span> This app is intended to serve only as a way to quickly find vaccine availability information. User will have to book their vaccination slots via the official channels like Aarogya Setu app, CoWin portal/app etc. Data is fetched in real time from CoWin Public APIs.</small>
+        </div>
+    </div>
 @endsection
 
 @section('scriptcode')
