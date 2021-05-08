@@ -81,7 +81,7 @@
                                   </div> --}}
                             </div>
                             
-                            <div class="col-md-3 col-sm-12">
+                            <div class="col-md-3 col-sm-12 div-filter">
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Filter by fee type</label>
                                   <select class="form-control" style="min-width: 50px;" id="selfltr_fee">
@@ -91,7 +91,7 @@
                                   </select>
                               </div>
                             </div>
-                            <div class="col-md-3 col-sm-12">
+                            <div class="col-md-3 col-sm-12 div-filter">
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Filter by eligiblity</label>
                                   <select class="form-control" style="min-width: 50px;" id="selfltr_eligiblity">
@@ -101,7 +101,7 @@
                                   </select>
                               </div>
                             </div>
-                            <div class="col-md-3 col-sm-12">
+                            <div class="col-md-3 col-sm-12 div-filter">
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Filter by Vaccine type</label>
                                   <select class="form-control" style="min-width: 50px;" id="selfltr_vaccinetype">
@@ -112,7 +112,7 @@
                               </div>
                             </div>
                            
-                            <div class="col-md-3 col-sm-12">
+                            <div class="col-md-3 col-sm-12 div-filter">
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Availability</label>
                                   <select class="form-control" style="min-width: 50px;" id="selfltr_availability">
@@ -122,7 +122,7 @@
                                   </select>
                               </div>
                             </div>
-                            <div class="col-md-3 col-sm-12">
+                            <div class="col-md-3 col-sm-12 div-filter">
                               <div class="form-group">
                                   <label for="exampleInputEmail1">Search by center name or pincode</label>
                                   <input type="text" class="form-control" id="txt_search_code"/>
@@ -135,6 +135,8 @@
                     <div class="card-footer">
                         <button class="btn btn-primary" type="button" id="btnCheck">Check</button>
                         {{-- <button class="btn btn-primary" type="button" id="btnGetByCentre">See Availability by Centres</button> --}}
+                        <button class="btn btn-primary" style="display: none;" type="button" id="btnShowFilter">Show Filters</button>
+                        <button class="btn btn-primary" type="button" id="btnHideFilter">Hide Filters</button>
                     </div>
                 </form>
                 </div>

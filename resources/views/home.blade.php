@@ -245,5 +245,16 @@
                 }
             });
         });
+
+        $('#btnHideFilter').click(function(){
+            $('.div-filter').hide();
+            $(this).hide();
+            $('#btnShowFilter').show();
+        })
+        $('#btnShowFilter').click(function(){
+            $('.div-filter').show();
+            $(this).hide();
+            $('#btnHideFilter').show();
+        })
     </script>
 @endsection
