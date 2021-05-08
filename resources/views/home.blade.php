@@ -161,20 +161,20 @@
                                 <div class="row">\
                                     <div class="col-sm-4 border-right">\
                                     <div class="description-block">\
-                                        <h5 class="description-header">'+data.fee_type+'</h5>\
-                                        <span class="description-text">Fee Type</span>\
+                                        <h5 class="description-header">Fee Type</h5>\
+                                        <span class="description-text">'+data.fee_type+'</span>\
                                     </div>\
                                     </div>\
                                     <div class="col-sm-4 border-right">\
                                     <div class="description-block">\
-                                        <h5 class="description-header">'+data.pincode+'</h5>\
-                                        <span class="description-text">Pincode</span>\
+                                        <h5 class="description-header">Pincode</h5>\
+                                        <span class="description-text">'+data.pincode+'</span>\
                                     </div>\
                                     </div>\
                                     <div class="col-sm-4">\
                                     <div class="description-block">\
-                                        <h5 class="description-header">'+availableDoses+'</h5>\
-                                        <span class="description-text">Available Doses</span>\
+                                        <h5 class="description-header">Available Doses</h5>\
+                                        <span class="description-text">'+availableDoses+'</span>\
                                     </div>\
                                     </div>\
                                 </div>\
